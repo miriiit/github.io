@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  ts-wordpress:
+    image: wordpress:latest
+    ports:
+      - "8888:80"
+    environment:
+      WORDPRESS_DB_HOST: ts-db
+      WORDPRESS_DB_USER: azhar
+      WORDPRESS_DB_PASSWORD: Azhs@9150
+      WORDPRESS_DB_NAME: talentsproutdb
+      WORDPRESS_HOME: http://localhost:8888
+      WORDPRESS_SITEURL: http://localhost:8888
+    volumes:
+      - ./docker_data/tswordpress:/var/www/html
+      - ./content/:/var/www/html/external-images
+
+
+
+  ts-db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: talentsproutdb
+      MYSQL_USER: azhar
+      MYSQL_PASSWORD: Azhs@9150
+      MYSQL_ROOT_PASSWORD: Azhs@9150
+    volumes:
+      - ./docker_data/talentsproutdb:/var/lib/mysql
