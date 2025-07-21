@@ -1,26 +1,26 @@
-# name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
-# on:
-#   push:
-#     branches:
-#       - main    # or change to your default branch
-#   workflow_dispatch: # allow manual trigger
+on:
+  push:
+    branches:
+      - main    # or change to your default branch
+  workflow_dispatch: # allow manual trigger
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout source
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-#       - name: Copy files to public folder
-#         run: |
-#           mkdir public
-#           cp -r index.html wp-content wp-includes public/
+      - name: Copy files to public folder
+        run: |
+          mkdir public
+          cp -r index.html wp-content wp-includes public/
 
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v4
-#         with:
-#           github_token: ${{ secrets.access_token }}
-#           publish_dir: ./public
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.access_token }}
+          publish_dir: ./public
