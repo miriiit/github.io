@@ -17,7 +17,7 @@ jobs:
       - name: Copy files to public folder
         run: |
           mkdir public
-          cp -r index.html wp-content wp-upload public/
+          cp -r index.html wp-content wp-includes public/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
